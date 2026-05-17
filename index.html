@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birender Singh — Engineering & Delivery Leadership</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --stone-50: #fafaf9;
+    --stone-100: #f5f5f4;
+    --stone-200: #e7e5e4;
+    --stone-300: #d6d3d1;
+    --stone-400: #a8a29e;
+    --stone-500: #78716c;
+    --stone-600: #57534e;
+    --stone-700: #44403c;
+    --stone-800: #292524;
+    --stone-900: #1c1917;
+    --sage: #7c8c78;
+    --sage-light: #a3b09f;
+    --sage-muted: #e8ede7;
+    --sage-wash: #f3f6f2;
+    --warm-white: #fdfcfa;
+    --text-primary: var(--stone-800);
+    --text-secondary: var(--stone-500);
+    --text-muted: var(--stone-400);
+    --border: var(--stone-200);
+    --accent: var(--sage);
+    --accent-light: var(--sage-muted);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    color: var(--text-primary);
+    background: var(--warm-white);
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === UTILITY === */
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* === NAVIGATION === */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(253, 252, 250, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    transition: all 0.4s ease;
+  }
+
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+
+  nav .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  nav .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  nav .nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  nav .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  nav .nav-links a:hover { color: var(--text-primary); }
+  nav .nav-links a:hover::after { width: 100%; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    width: 22px;
+    height: 1.5px;
+    background: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, var(--sage-muted) 0%, transparent 70%);
+    opacity: 0.5;
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.35; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-tagline {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--stone-300);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-cta:hover {
+    border-color: var(--accent);
+    gap: 18px;
+  }
+
+  .hero-cta svg {
+    transition: transform 0.3s ease;
+  }
+  .hero-cta:hover svg {
+    transform: translateX(4px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === SECTIONS === */
+  section {
+    padding: 120px 0;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+  }
+
+  .section-intro {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin-bottom: 64px;
+    line-height: 1.7;
+  }
+
+  /* === ABOUT === */
+  .about-section {
+    background: var(--sage-wash);
+    border-top: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text p {
+    margin-bottom: 20px;
+    color: var(--stone-600);
+  }
+
+  .about-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .detail-item {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .detail-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .detail-value {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  /* === EXPERIENCE === */
+  .experience-item {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 60px;
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .experience-item:last-child {
+    border-bottom: none;
+  }
+
+  .exp-meta {
+    position: sticky;
+    top: 100px;
+  }
+
+  .exp-company {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  .exp-role {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .exp-period {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .exp-content p {
+    margin-bottom: 16px;
+    color: var(--stone-600);
+  }
+
+  .exp-highlights {
+    margin-top: 24px;
+    padding: 28px;
+    background: var(--sage-wash);
+    border-radius: 8px;
+    border-left: 2px solid var(--sage-light);
+  }
+
+  .exp-highlights-title {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .exp-highlights p {
+    color: var(--stone-600);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .exp-highlights p:last-child { margin-bottom: 0; }
+
+  /* === SKILLS === */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .skill-card {
+    background: var(--warm-white);
+    padding: 36px 28px;
+    transition: background 0.3s ease;
+  }
+
+  .skill-card:hover {
+    background: var(--sage-wash);
+  }
+
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+
+  .skill-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .skill-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* === EDUCATION === */
+  .education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .edu-card {
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .edu-card:hover {
+    border-color: var(--sage-light);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+  }
+
+  .edu-year {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+
+  .edu-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  .edu-detail {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* === CERTIFICATIONS === */
+  .cert-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+  }
+
+  .cert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--sage-wash);
+    border: 1px solid var(--sage-muted);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--stone-600);
+    transition: all 0.3s ease;
+  }
+
+  .cert-badge:hover {
+    background: var(--sage-muted);
+  }
+
+  .cert-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--sage);
+    border-radius: 50%;
+  }
+
+  /* === CONTACT === */
+  .contact-section {
+    background: var(--stone-900);
+    color: var(--stone-300);
+    border-radius: 16px;
+    margin: 0 40px 80px;
+    overflow: hidden;
+  }
+
+  .contact-section .container {
+    padding: 80px 60px;
+  }
+
+  .contact-section .section-label {
+    color: var(--sage-light);
+  }
+
+  .contact-section .section-title {
+    color: var(--stone-100);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 48px;
+  }
+
+  .contact-text p {
+    color: var(--stone-400);
+    margin-bottom: 32px;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--sage-light);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--stone-100);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone-500);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--stone-700);
+    border-radius: 6px;
+    padding: 14px 16px;
+    color: var(--stone-200);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    transition: border-color 0.3s ease;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--sage);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    align-self: flex-start;
+    background: var(--sage);
+    color: white;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 6px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background: var(--stone-600);
+  }
+
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* === SCROLL REVEAL === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 860px) {
+    .container { padding: 0 24px; }
+
+    nav .nav-links { display: none; }
+    nav .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(253,252,250,0.97);
+      backdrop-filter: blur(20px);
+      padding: 24px;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hamburger { display: flex; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-details { grid-template-columns: 1fr 1fr; }
+
+    .experience-item {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .exp-meta { position: static; }
+
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+
+    .education-grid { grid-template-columns: 1fr; }
+
+    .contact-section { margin: 0 16px 40px; border-radius: 12px; }
+    .contact-section .container { padding: 48px 32px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+    section { padding: 80px 0; }
+  }
+
+  @media (max-width: 540px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .about-details { grid-template-columns: 1fr; }
+    .cert-row { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="container">
+    <a href="#" class="logo">Birender Singh</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-label">Engineering & Delivery Leadership</p>
+      <h1>Calm in complexity.<br>Clarity in delivery.</h1>
+      <p class="hero-tagline">Product-minded, people-focused delivery leader with 15+ years of turning ambiguous, high-stakes initiatives into clear outcomes — across cloud, cybersecurity, data platforms, and digital transformation.</p>
+      <a href="#contact" class="hero-cta">
+        Let's talk
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Bringing order to ambiguity</h2>
+        <p>I operate at the intersection of product, technology, and people — aligning stakeholder priorities, engineering execution, and ways of working to improve flow, quality, and predictability.</p>
+        <p>My approach is pragmatic and people-focused, with a strong bias toward outcomes over activity. Whether it's a single delivery stream or a multi-team transformation program, I bring the same thing: steady leadership, clear thinking, and a relentless focus on what actually matters.</p>
+      </div>
+      <div class="about-details reveal">
+        <div class="detail-item">
+          <p class="detail-label">Current Role</p>
+          <p class="detail-value">Senior Principal Consultant at Slalom</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Industries</p>
+          <p class="detail-value">Public Sector, Financial Services, Insurance</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Experience</p>
+          <p class="detail-value">15+ years in delivery & engineering leadership</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Based in</p>
+          <p class="detail-value">Melbourne, Australia</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label reveal">Experience</p>
+    <h2 class="section-title reveal">Where I've delivered</h2>
+    <p class="section-intro reveal">A track record of leading complex initiatives across regulated industries, building high-performing teams, and creating delivery models that last.</p>
+
+    <div class="experience-item reveal">
+      <div class="exp-meta">
+        <p class="exp-company">Slalom</p>
+        <p class="exp-role">Senior Principal Consultant</p>
+        <p class="exp-period">Aug 2021 — Present</p>
+      </div>
+      <div class="exp-content">
+        <p>Senior client-facing role in a consulting environment, trusted to step into complex engagements and provide clear, steady delivery leadership. Led both standalone initiatives and large multi-stream transformations, taking accountability for outcomes and owning critical delivery streams within broader program structures.</p>
+        <p>Worked closely with executive and senior client stakeholders to shape delivery strategy, put fit-for-purpose governance in place, and align product priorities with engineering execution — helping teams move forward with clarity, confidence, and quality.</p>
+        <div class="exp-highlights">
+          <p class="exp-highlights-title">Key Impact</p>
+          <p>Improved delivery predictability and stakeholder confidence by strengthening prioritisation, dependency visibility, and risk management across complex, multi-stream programs in highly regulated and public sector environments.</p>
+          <p>Helped establish scalable delivery models that supported ongoing platform and capability evolution, reducing reliance on one-off project delivery.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience-item reveal">
+      <div class="exp-meta">
+        <p class="exp-company">National Australia Bank</p>
+        <p class="exp-role">Delivery Consultant</p>
+        <p class="exp-period">Oct 2017 — Jul 2021</p>
+      </div>
+      <div class="exp-content">
+        <p>Senior delivery role within cybersecurity, leading engineering teams through complex cloud and compliance initiatives. Worked in highly regulated contexts, balancing delivery momentum with risk management, security, and operational stability.</p>
+        <p>Led cross-functional engineering teams to design and deliver a continuous compliance framework across AWS and Azure, improving control coverage, audit readiness, and operational confidence. Built and shaped a business analysis capability within the cybersecurity domain.</p>
+        <div class="exp-highlights">
+          <p class="exp-highlights-title">Key Impact</p>
+          <p>Established scalable, repeatable compliance practices across cloud platforms, improving audit readiness and reducing manual effort in a complex enterprise environment.</p>
+          <p>Increased delivery confidence and stakeholder trust across security and risk-sensitive initiatives.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience-item reveal">
+      <div class="exp-meta">
+        <p class="exp-company">Earlier Career</p>
+        <p class="exp-role">BA & QA Roles</p>
+        <p class="exp-period">2010 — 2017</p>
+      </div>
+      <div class="exp-content">
+        <p>Built career foundations across delivery, business analysis, and quality engineering at WBP Group, Sopra Steria, and Aon. Supported technology initiatives in financial services and professional services, progressively stepping into broader delivery and leadership responsibilities through consistent performance and collaboration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" style="background: var(--sage-wash); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);">
+  <div class="container">
+    <p class="section-label reveal">Capabilities</p>
+    <h2 class="section-title reveal">What I bring</h2>
+    <p class="section-intro reveal">A broad skill set built across delivery, engineering, and transformation — applied with pragmatism and a focus on outcomes.</p>
+
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <p class="skill-name">Delivery Leadership</p>
+        <p class="skill-desc">End-to-end delivery accountability across complex, multi-team programs</p>
+      </div>
+      <div class="skill-card">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <p class="skill-name">Stakeholder Engagement</p>
+        <p class="skill-desc">Executive alignment, governance, and informed decision-making</p>
+      </div>
+      <div class="skill-card">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <p class="skill-name">Cloud & Security</p>
+        <p class="skill-desc">AWS, Azure, GCP — security-aware delivery in regulated environments</p>
+      </div>
+      <div class="skill-card">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <p class="skill-name">Product & Roadmap Alignment</p>
+        <p class="skill-desc">Connecting product vision to engineering execution and delivery planning</p>
+      </div>
+      <div class="skill-card">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <p class="skill-name">Continuous Improvement</p>
+        <p class="skill-desc">Flow optimisation, ways of working, and practical frameworks</p>
+      </div>
+      <div class="skill-card">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        <p class="skill-name">Data & Platform Modernisation</p>
+        <p class="skill-desc">Modern data platforms, pipelines, and platform transformation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+  <div class="container">
+    <p class="section-label reveal">Education & Certifications</p>
+    <h2 class="section-title reveal">Foundations</h2>
+
+    <div class="education-grid reveal">
+      <div class="edu-card">
+        <p class="edu-year">2022</p>
+        <p class="edu-title">Graduate Certificate in Product Management</p>
+      </div>
+      <div class="edu-card">
+        <p class="edu-year">2014</p>
+        <p class="edu-title">Master of Business Administration</p>
+        <p class="edu-detail">Project Management</p>
+      </div>
+      <div class="edu-card">
+        <p class="edu-year">2009</p>
+        <p class="edu-title">Bachelor's Degree</p>
+        <p class="edu-detail">Major in Computing</p>
+      </div>
+    </div>
+
+    <div class="cert-row reveal">
+      <span class="cert-badge"><span class="cert-dot"></span>AWS Certified Cloud Practitioner</span>
+      <span class="cert-badge"><span class="cert-dot"></span>Azure Fundamentals</span>
+      <span class="cert-badge"><span class="cert-dot"></span>Google Digital Cloud Leader</span>
+      <span class="cert-badge"><span class="cert-dot"></span>Certified Scrum Master</span>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Let's have a conversation</h2>
+        <div class="contact-text">
+          <p>Whether you're looking for delivery leadership on a complex initiative, want to discuss how to improve flow across your teams, or just want to connect — I'd love to hear from you.</p>
+        </div>
+        <a href="https://linkedin.com/in/birender-singh" class="contact-link" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.submit-btn').textContent='Message sent — thank you!'; this.querySelector('.submit-btn').disabled=true;">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="What would you like to discuss?" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Birender Singh. All rights reserved.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
