@@ -84,7 +84,7 @@
     gap: 8px;
     text-decoration: none;
     color: var(--text-secondary);
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 400;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -148,9 +148,20 @@
     color: var(--text-secondary);
     max-width: 620px;
     line-height: 1.6;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     opacity: 0;
     animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-focus {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--stone-600);
+    max-width: 620px;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.7s forwards;
   }
 
   .hero-industries {
@@ -372,7 +383,7 @@
   .step-num {
     width: 48px; height: 48px;
     border-radius: 50%;
-    background: var(--sage);
+    background: var(--stone-800);
     color: white;
     display: flex; align-items: center; justify-content: center;
     font-size: 18px;
@@ -380,10 +391,6 @@
     margin-bottom: 20px;
     font-family: 'DM Serif Display', serif;
   }
-  .step:nth-child(2) .step-num { background: var(--stone-800); }
-  .step:nth-child(3) .step-num { background: var(--stone-800); }
-  .step:nth-child(4) .step-num { background: var(--stone-800); }
-  .step:nth-child(5) .step-num { background: var(--stone-800); }
 
   .step h3 {
     font-size: 15px;
@@ -719,6 +726,7 @@
       <p class="hero-label">Data Consulting Services</p>
       <h1>Trusted data.<br>Defensible decisions.</h1>
       <p class="hero-tagline">We help organisations in regulated, data-driven industries turn fragmented data into governed, AI-ready platforms — so every decision is fast, evidence-based, and defensible to boards and regulators alike.</p>
+      <p class="hero-focus">We focus on the sectors where decisions are driven by data — and must stand up to scrutiny:</p>
       <div class="hero-industries">
         <span class="industry-tag"><span class="dot"></span>Financial Services</span>
         <span class="industry-tag"><span class="dot"></span>Insurance</span>
@@ -772,7 +780,7 @@
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         <h3>Data Platform Setup</h3>
-        <p>Scalable platforms built on Snowflake, Databricks, or cloud-native services across AWS, Azure, and GCP.</p>
+        <p>We design and implement modern data platforms — Snowflake, Databricks, Microsoft Fabric, and cloud-native warehouses — built to scale securely across AWS, Azure, and GCP.</p>
       </div>
       <div class="service-card">
         <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
@@ -998,29 +1006,29 @@
   </div>
 </section>
 
-<!-- Why Me -->
+<!-- Why Work With Us -->
 <section class="why-section">
   <div class="container">
     <p class="section-label reveal">Why Work With Us</p>
-    <h2 class="section-title reveal">Delivery leadership that understands regulation</h2>
-    <p class="section-intro reveal">This isn't generic data consulting. It's built on 15+ years of leading complex, high-stakes delivery in exactly the industries where data, security, and compliance can't be separated.</p>
+    <h2 class="section-title reveal">An experienced team, working as one</h2>
+    <p class="section-intro reveal">Behind this practice is a team of experienced consultants and technologists — diverse in skill and background, united by a single standard of quality. We bring the depth to take on any challenge, and the mindset to deliver it alongside you, as one team.</p>
 
     <div class="why-grid">
       <div class="why-card reveal">
-        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Regulated by experience</h3>
-        <p>Deep delivery experience across financial services, insurance, and the public sector — including building a continuous compliance framework across AWS and Azure at a major bank.</p>
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>A multi-disciplinary team</h3>
+        <p>Experienced consultants and technologists spanning data engineering, architecture, BI, and AI — a breadth of skills and seniority ready to match the shape of your challenge.</p>
       </div>
       <div class="why-card reveal">
-        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Speed to value</h3>
-        <p>Pre-built frameworks and proven methodologies deliver results in weeks, not months — so you see ROI fast, without compromising on governance.</p>
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Ready for any challenge</h3>
+        <p>From first migration to advanced AI, our team has the hands-on depth across modern data platforms — Snowflake, Databricks, and more — to deliver, whatever the scale or complexity.</p>
       </div>
       <div class="why-card reveal">
-        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>The IT + data gap, filled</h3>
-        <p>IT teams build infrastructure but rarely have deep data platform, analytics, and AI expertise. That's precisely the gap this practice is built to fill.</p>
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>One team with you</h3>
+        <p>We don't work at arm's length. We embed alongside your people and operate as a single team — collaborative, transparent, and accountable to the same outcomes.</p>
       </div>
       <div class="why-card reveal">
-        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14"/></svg>Built to last</h3>
-        <p>Engagements are designed for sustainable outcomes — scalable delivery models that evolve with you, not one-off projects that leave you stranded.</p>
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Quality, in regulated environments</h3>
+        <p>Deep experience across financial services, insurance, and the public sector — where data, security, and compliance can't be separated, and quality isn't optional.</p>
       </div>
     </div>
   </div>
@@ -1036,7 +1044,6 @@
         Start a conversation
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="/" class="btn-secondary">View my profile</a>
     </div>
   </div>
 </section>
