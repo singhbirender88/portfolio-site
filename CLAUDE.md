@@ -50,31 +50,66 @@ Fonts won't render correctly without an internet connection (loaded from Google 
 5. **Education & Certifications** — 3 edu cards + 4 cert badges
 6. **Contact** — dark stone background panel; LinkedIn link + static contact form
 
-## Content Pipeline
+## Pages
+
+| Page | File | URL | Notes |
+|------|------|-----|-------|
+| Portfolio home | `index.html` | `/` | Public, indexed |
+| Data Consulting Services | `DCS/index.html` | `/DCS` | Intentionally unlinked, `noindex` — reachable by direct URL only |
+
+The DCS page is **not linked from the homepage** and carries `<meta name="robots" content="noindex">`. Do not add a link to it from `index.html` or the nav.
+
+## Content Pipelines
+
+There are two separate content pipelines — keep them independent:
+
+| Source | Updates | Target |
+|--------|---------|--------|
+| CV PDF in `docs/` | → `CONTENT.md` → | `index.html` (portfolio) |
+| Business deck PDF in `docs/` | → | `DCS/index.html` directly |
+
+`CONTENT.md` is portfolio-only. DCS content comes from the business deck; do not add DCS copy to `CONTENT.md`.
+
+### Pipeline 1 — CV → Portfolio
+
+
 
 All site copy lives in **`CONTENT.md`** — it is the single source of truth. `index.html` should always reflect what's in `CONTENT.md`.
 
 CV PDFs go in **`docs/`**. When a new one is added, follow this process:
 
-### When a new CV PDF is added to docs/
+### Pipeline 2 — Business deck → DCS page
+
+When `docs/DataConsultingServices_Main.pdf` (or an updated version) is added:
+
+1. **Read the PDF** — use the Read tool on the file in `docs/`
+2. **Update `DCS/index.html`** — apply any changed copy (headings, service descriptions, contact details, etc.) directly into the file
+3. **Commit on `dev`** — stage `DCS/index.html` (and the new PDF if it changed) with a message like `Update DCS page from deck — <filename>`
+
+To trigger: *"I've updated `docs/DataConsultingServices_Main.pdf` — update the DCS page from it."*
+
+---
+
+### Pipeline 1 — CV → Portfolio
+
+#### When a new CV PDF is added to docs/
 
 1. **Read the PDF** — use the Read tool on the new file in `docs/`
 2. **Update `CONTENT.md`** — reconcile any changed copy (role titles, dates, bio text, skills, certifications, education) with what's in the PDF. Preserve the existing markdown structure; only update values that differ.
 3. **Update `index.html`** — apply the same changes from step 2 to the corresponding sections in `index.html`. The section layout and CSS classes should not change; only the text content inside them.
 4. **Commit on `dev`** — stage `CONTENT.md` and `index.html` together with a message like `Update content from CV — <filename>`.
 
-### Manual trigger
-
-To kick this off, tell Claude Code:
-> "I've added `docs/<filename>.pdf` — update the site content from it."
+To trigger: *"I've added `docs/<filename>.pdf` — update the site content from it."*
 
 ### File roles
 
 | File | Purpose |
 |------|---------|
-| `docs/*.pdf` | Source CV documents — drop new ones here |
-| `CONTENT.md` | Structured markdown mirror of all site copy |
-| `index.html` | The rendered site — always kept in sync with `CONTENT.md` |
+| `docs/<cv>.pdf` | Source CV documents — drop new ones here |
+| `docs/DataConsultingServices_Main.pdf` | Source business deck for the DCS page |
+| `CONTENT.md` | Structured markdown mirror of portfolio copy only |
+| `index.html` | Portfolio home — always kept in sync with `CONTENT.md` |
+| `DCS/index.html` | DCS page — updated directly from the business deck |
 
 ---
 

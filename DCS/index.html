@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Consulting Services — Trusted Data, Defensible Decisions</title>
+<meta name="description" content="Data platforms for regulated, data-driven industries. We help financial services, insurance, and public sector organisations turn fragmented data into governed, AI-ready decisions.">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --stone-50: #fafaf9;
+    --stone-100: #f5f5f4;
+    --stone-200: #e7e5e4;
+    --stone-300: #d6d3d1;
+    --stone-400: #a8a29e;
+    --stone-500: #78716c;
+    --stone-600: #57534e;
+    --stone-700: #44403c;
+    --stone-800: #292524;
+    --stone-900: #1c1917;
+    --sage: #7c8c78;
+    --sage-light: #a3b09f;
+    --sage-muted: #e8ede7;
+    --sage-wash: #f3f6f2;
+    --warm-white: #fdfcfa;
+    --text-primary: var(--stone-800);
+    --text-secondary: var(--stone-500);
+    --text-muted: var(--stone-400);
+    --border: var(--stone-200);
+    --accent: var(--sage);
+    --accent-light: var(--sage-muted);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 300;
+    color: var(--text-primary);
+    background: var(--warm-white);
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* === NAVIGATION === */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(253, 252, 250, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+
+  nav .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  nav .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  nav .back-link:hover { color: var(--text-primary); }
+  nav .back-link svg { transition: transform 0.3s ease; }
+  nav .back-link:hover svg { transform: translateX(-3px); }
+
+  /* === HERO === */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -20%;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--sage-muted) 0%, transparent 70%);
+    opacity: 0.5;
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.35; }
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+  .hero-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-tagline {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    max-width: 620px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-industries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .industry-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: var(--sage-wash);
+    border: 1px solid var(--sage-muted);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--stone-600);
+  }
+  .industry-tag .dot { width: 6px; height: 6px; background: var(--sage); border-radius: 50%; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === SECTIONS === */
+  section { padding: 110px 0; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+  }
+
+  .section-intro {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: 64px;
+    line-height: 1.7;
+  }
+
+  /* === PROBLEM === */
+  .problem-section {
+    background: var(--sage-wash);
+    border-top: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .problem-card {
+    background: var(--warm-white);
+    padding: 36px;
+    border-radius: 10px;
+    border-left: 2px solid var(--sage-light);
+  }
+
+  .problem-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .problem-card p {
+    font-size: 15px;
+    color: var(--stone-600);
+    line-height: 1.6;
+  }
+
+  /* === SERVICES === */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .service-card {
+    background: var(--warm-white);
+    padding: 40px 32px;
+    transition: background 0.3s ease;
+  }
+  .service-card:hover { background: var(--sage-wash); }
+
+  .service-icon {
+    width: 38px; height: 38px;
+    margin-bottom: 18px;
+    color: var(--accent);
+  }
+
+  .service-card h3 {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* === ARCHITECTURE === */
+  .arch-section {
+    background: var(--sage-wash);
+    border-top: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .arch-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+
+  .arch-stage {
+    background: var(--warm-white);
+    border-radius: 10px;
+    padding: 28px 18px;
+    text-align: center;
+    position: relative;
+    border-top: 3px solid var(--sage-light);
+  }
+
+  .arch-stage.platform {
+    background: var(--stone-900);
+    border-top-color: var(--sage);
+  }
+  .arch-stage.platform .arch-name { color: var(--stone-100); }
+  .arch-stage.platform .arch-detail { color: var(--stone-400); }
+  .arch-stage.platform .arch-icon { color: var(--sage-light); }
+
+  .arch-icon {
+    width: 32px; height: 32px;
+    margin: 0 auto 14px;
+    color: var(--accent);
+  }
+
+  .arch-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .arch-detail {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .arch-arrow {
+    position: absolute;
+    right: -11px; top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: var(--sage);
+    background: var(--sage-wash);
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .arch-stage:last-child .arch-arrow { display: none; }
+
+  .arch-infra {
+    background: var(--warm-white);
+    border-radius: 10px;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid var(--border);
+  }
+  .arch-infra svg { color: var(--accent); flex-shrink: 0; }
+  .arch-infra-text { font-size: 14px; color: var(--stone-600); }
+  .arch-infra-text strong { color: var(--text-primary); font-weight: 600; }
+
+  /* === APPROACH (steps) === */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    position: relative;
+  }
+
+  .step {
+    text-align: left;
+  }
+
+  .step-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--sage);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: 'DM Serif Display', serif;
+  }
+  .step:nth-child(2) .step-num { background: var(--stone-800); }
+  .step:nth-child(3) .step-num { background: var(--stone-800); }
+  .step:nth-child(4) .step-num { background: var(--stone-800); }
+  .step:nth-child(5) .step-num { background: var(--stone-800); }
+
+  .step h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .step p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .principles {
+    margin-top: 56px;
+    padding: 28px 36px;
+    background: var(--stone-900);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+  }
+  .principles-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+  }
+  .principle {
+    font-size: 14px;
+    color: var(--stone-200);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .principle .dot { width: 5px; height: 5px; background: var(--sage); border-radius: 50%; }
+
+  /* === VALUE (two columns) === */
+  .value-section {
+    background: var(--sage-wash);
+    border-top: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .value-col {
+    background: var(--warm-white);
+    padding: 40px;
+    border-radius: 10px;
+  }
+
+  .value-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .value-list { list-style: none; }
+  .value-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    font-size: 15px;
+    color: var(--stone-600);
+  }
+  .value-list li svg { color: var(--sage); flex-shrink: 0; margin-top: 3px; }
+
+  /* === REVENUE / DATA AS PRODUCT === */
+  .revenue-hub {
+    background: var(--stone-900);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .revenue-hub svg { color: var(--sage-light); }
+  .revenue-hub h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--stone-100);
+  }
+
+  .revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .revenue-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--sage);
+    border-radius: 10px;
+    padding: 28px 22px;
+    text-align: center;
+  }
+  .revenue-card svg { color: var(--accent); margin-bottom: 14px; }
+  .revenue-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .revenue-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* === COMMERCIAL MODEL === */
+  .commercial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .commercial-card {
+    padding: 36px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  .commercial-card:hover {
+    border-color: var(--sage-light);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+  }
+
+  .commercial-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+
+  .commercial-list { list-style: none; }
+  .commercial-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--stone-600);
+  }
+  .commercial-list li svg { color: var(--sage); flex-shrink: 0; }
+
+  /* === WHY ME === */
+  .why-section {
+    background: var(--stone-900);
+    color: var(--stone-300);
+  }
+  .why-section .section-label { color: var(--sage-light); }
+  .why-section .section-title { color: var(--stone-100); }
+  .why-section .section-intro { color: var(--stone-400); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--stone-700);
+    border-radius: 10px;
+    padding: 32px;
+  }
+
+  .why-card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--stone-100);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .why-card h3 svg { color: var(--sage-light); }
+
+  .why-card p {
+    font-size: 15px;
+    color: var(--stone-400);
+    line-height: 1.6;
+  }
+
+  /* === CTA === */
+  .cta-section {
+    text-align: center;
+    padding: 130px 0;
+  }
+
+  .cta-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    line-height: 1.15;
+  }
+
+  .cta-section p {
+    font-size: 19px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--sage);
+    color: white;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { background: var(--stone-700); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 6px;
+    border: 1px solid var(--stone-300);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+  .btn-secondary:hover { border-color: var(--sage); }
+
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* === SCROLL REVEAL === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 920px) {
+    .arch-flow { grid-template-columns: 1fr 1fr; }
+    .arch-arrow { display: none; }
+    .arch-stage:last-child .arch-arrow { display: none; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .revenue-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 860px) {
+    .container { padding: 0 24px; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .value-grid { grid-template-columns: 1fr; }
+    .commercial-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    section { padding: 80px 0; }
+    nav .logo { font-size: 16px; }
+  }
+
+  @media (max-width: 540px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .arch-flow { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .revenue-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="container">
+    <a href="/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Birender Singh
+    </a>
+    <a href="#contact" class="logo" style="font-size:14px; text-transform:uppercase; letter-spacing:0.06em; border-bottom:1px solid var(--stone-300); padding-bottom:4px;">Get in touch</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-label">Data Consulting Services</p>
+      <h1>Trusted data.<br>Defensible decisions.</h1>
+      <p class="hero-tagline">We help organisations in regulated, data-driven industries turn fragmented data into governed, AI-ready platforms — so every decision is fast, evidence-based, and defensible to boards and regulators alike.</p>
+      <div class="hero-industries">
+        <span class="industry-tag"><span class="dot"></span>Financial Services</span>
+        <span class="industry-tag"><span class="dot"></span>Insurance</span>
+        <span class="industry-tag"><span class="dot"></span>Public Sector</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Problem -->
+<section class="problem-section">
+  <div class="container">
+    <p class="section-label reveal">The Problem We Solve</p>
+    <h2 class="section-title reveal">When decisions carry weight, data can't be an afterthought</h2>
+    <p class="section-intro reveal">In regulated industries, fragmented or untrustworthy data isn't just inconvenient — it's a compliance risk, a board-level liability, and a brake on innovation.</p>
+
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <h3>Data you can't fully trust</h3>
+        <p>Critical data is locked in silos across legacy systems, spreadsheets, and disconnected databases — making it slow and risky to reconcile for regulatory reporting and audit.</p>
+      </div>
+      <div class="problem-card reveal">
+        <h3>High-risk migrations</h3>
+        <p>Moving sensitive, regulated data to the cloud is slow, costly, and risky without expertise that understands compliance, continuity, and security from day one.</p>
+      </div>
+      <div class="problem-card reveal">
+        <h3>Decisions you can't defend</h3>
+        <p>The data exists, but leaders can't get the timely, traceable dashboards and reports that boards, auditors, and regulators increasingly expect.</p>
+      </div>
+      <div class="problem-card reveal">
+        <h3>AI ambition, governance reality</h3>
+        <p>Organisations want AI-powered insight but are blocked by data quality, security, and governance gaps — with no trusted foundation to build on safely.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <p class="section-label reveal">What We Do</p>
+    <h2 class="section-title reveal">End-to-end data capability</h2>
+    <p class="section-intro reveal">From the foundations to the frontier — a complete set of services designed to move you from fragmented data to AI-ready decisions, with governance built in at every step.</p>
+
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 01-4 4H3"/></svg>
+        <h3>Data Migration</h3>
+        <p>End-to-end migration from legacy systems to modern cloud platforms with zero data loss and minimal disruption.</p>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>Data Platform Setup</h3>
+        <p>Scalable platforms built on Snowflake, Databricks, or cloud-native services across AWS, Azure, and GCP.</p>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        <h3>Visualisation & BI</h3>
+        <p>Power BI, Microsoft Fabric, and custom dashboards so every team can self-serve trusted insights.</p>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 16h.01M16 16h.01"/></svg>
+        <h3>AI / LLM Integration</h3>
+        <p>Train and deploy LLMs on your governed data platform for executive insight and secure, user-facing intelligence.</p>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        <h3>Application Data APIs</h3>
+        <p>Expose your platform to internal and external applications via secure, managed, well-governed APIs.</p>
+      </div>
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        <h3>Data Monetisation</h3>
+        <p>Create new revenue streams by packaging trusted data into compliant, sellable data products.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section class="arch-section">
+  <div class="container">
+    <p class="section-label reveal">How It Fits Together</p>
+    <h2 class="section-title reveal">The ideal data platform architecture</h2>
+    <p class="section-intro reveal">A proven reference architecture — showing how data flows from source to AI-ready insight, with cloud infrastructure and governance underpinning every layer.</p>
+
+    <div class="arch-flow reveal">
+      <div class="arch-stage">
+        <svg class="arch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+        <p class="arch-name">Data Sources</p>
+        <p class="arch-detail">ERP, CRM, IoT, APIs, files</p>
+        <div class="arch-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="arch-stage">
+        <svg class="arch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <p class="arch-name">Ingestion & ETL / ELT</p>
+        <p class="arch-detail">Cloud-native pipelines</p>
+        <div class="arch-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="arch-stage platform">
+        <svg class="arch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+        <p class="arch-name">Data Platform</p>
+        <p class="arch-detail">Snowflake / Databricks / Cloud DW</p>
+        <div class="arch-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="arch-stage">
+        <svg class="arch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        <p class="arch-name">Analytics & Visualisation</p>
+        <p class="arch-detail">Power BI / Fabric / Dashboards</p>
+        <div class="arch-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="arch-stage">
+        <svg class="arch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 16h.01M16 16h.01"/></svg>
+        <p class="arch-name">AI / LLM Layer</p>
+        <p class="arch-detail">Trained models for insight</p>
+        <div class="arch-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </div>
+
+    <div class="arch-infra reveal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+      <p class="arch-infra-text"><strong>Cloud Infrastructure:</strong> AWS &nbsp;|&nbsp; Microsoft Azure &nbsp;|&nbsp; Google Cloud Platform — with security and governance underpinning every layer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Approach -->
+<section id="approach">
+  <div class="container">
+    <p class="section-label reveal">Our Proven Approach</p>
+    <h2 class="section-title reveal">Data migration, de-risked</h2>
+    <p class="section-intro reveal">A disciplined, five-stage methodology refined across complex, regulated environments — built to protect data, minimise downtime, and keep stakeholders confident throughout.</p>
+
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Discover & Assess</h3>
+        <p>Audit existing data sources, quality, dependencies, and compliance requirements.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Architecture Design</h3>
+        <p>Design the target platform, schema mapping, ETL pipelines, and governance model.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Build & Transform</h3>
+        <p>Develop ingestion pipelines, transform data, and implement quality checks.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Validate & Test</h3>
+        <p>Run parallel environments, reconcile data, and validate with stakeholders.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h3>Cutover & Optimise</h3>
+        <p>Execute production cutover, monitor performance, and optimise for cost.</p>
+      </div>
+    </div>
+
+    <div class="principles reveal">
+      <span class="principles-label">Key Principles</span>
+      <span class="principle"><span class="dot"></span>Zero Data Loss</span>
+      <span class="principle"><span class="dot"></span>Minimal Downtime</span>
+      <span class="principle"><span class="dot"></span>Full Traceability</span>
+      <span class="principle"><span class="dot"></span>Cloud-Native First</span>
+    </div>
+  </div>
+</section>
+
+<!-- Value -->
+<section class="value-section">
+  <div class="container">
+    <p class="section-label reveal">Unlocking Value</p>
+    <h2 class="section-title reveal">From dashboards to decisions</h2>
+    <p class="section-intro reveal">Two complementary capabilities that turn a trusted data platform into measurable business value — for analysts and executives alike.</p>
+
+    <div class="value-grid">
+      <div class="value-col reveal">
+        <h3>Business Intelligence & Dashboards</h3>
+        <ul class="value-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Power BI & Microsoft Fabric deployment</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Self-service dashboards for every team</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Real-time KPIs and automated reporting</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Data storytelling and executive summaries</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Embedded analytics in existing applications</li>
+        </ul>
+      </div>
+      <div class="value-col reveal">
+        <h3>AI & LLM-Powered Intelligence</h3>
+        <ul class="value-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>LLMs trained on your organisation's data</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Natural language queries for executives</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Automated insights and anomaly detection</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>AI assistants for internal teams</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Secure, governed, private AI deployment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Data as a Product -->
+<section id="revenue">
+  <div class="container">
+    <p class="section-label reveal">Data as a Product</p>
+    <h2 class="section-title reveal">New revenue streams from trusted data</h2>
+    <p class="section-intro reveal">Once your data is governed and reliable, it becomes more than an internal asset — it becomes a product that can power applications, partnerships, and entirely new revenue.</p>
+
+    <div class="revenue-hub reveal">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+      <h3>Your Data Platform</h3>
+    </div>
+
+    <div class="revenue-grid reveal">
+      <div class="revenue-card">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <h4>Internal Apps</h4>
+        <p>Consume data via secure, governed APIs</p>
+      </div>
+      <div class="revenue-card">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <h4>Customer-Facing</h4>
+        <p>Applications powered by your data</p>
+      </div>
+      <div class="revenue-card">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        <h4>Data Marketplace</h4>
+        <p>Sell curated data to partners</p>
+      </div>
+      <div class="revenue-card">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        <h4>Analytics Products</h4>
+        <p>Packaged insights as a service</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Commercial Model -->
+<section style="background: var(--sage-wash); border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);">
+  <div class="container">
+    <p class="section-label reveal">How We Work</p>
+    <h2 class="section-title reveal">Engagement models that fit</h2>
+    <p class="section-intro reveal">Flexible ways to work together — from fixed-scope projects to ongoing partnership — designed to deliver value early and sustain it over time.</p>
+
+    <div class="commercial-grid">
+      <div class="commercial-card reveal" style="background: var(--warm-white);">
+        <h3>Project-Based</h3>
+        <ul class="commercial-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Fixed-scope engagements</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Data migration projects</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Platform build-outs</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Milestone-based billing</li>
+        </ul>
+      </div>
+      <div class="commercial-card reveal" style="background: var(--warm-white);">
+        <h3>Retainer / Managed</h3>
+        <ul class="commercial-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ongoing platform support</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Monthly managed services</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>SLA-backed operations</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Continuous optimisation</li>
+        </ul>
+      </div>
+      <div class="commercial-card reveal" style="background: var(--warm-white);">
+        <h3>Advisory & Training</h3>
+        <ul class="commercial-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Strategic data consulting</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Team upskilling workshops</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Architecture reviews</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Roadmap development</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Me -->
+<section class="why-section">
+  <div class="container">
+    <p class="section-label reveal">Why Work With Us</p>
+    <h2 class="section-title reveal">Delivery leadership that understands regulation</h2>
+    <p class="section-intro reveal">This isn't generic data consulting. It's built on 15+ years of leading complex, high-stakes delivery in exactly the industries where data, security, and compliance can't be separated.</p>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Regulated by experience</h3>
+        <p>Deep delivery experience across financial services, insurance, and the public sector — including building a continuous compliance framework across AWS and Azure at a major bank.</p>
+      </div>
+      <div class="why-card reveal">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Speed to value</h3>
+        <p>Pre-built frameworks and proven methodologies deliver results in weeks, not months — so you see ROI fast, without compromising on governance.</p>
+      </div>
+      <div class="why-card reveal">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>The IT + data gap, filled</h3>
+        <p>IT teams build infrastructure but rarely have deep data platform, analytics, and AI expertise. That's precisely the gap this practice is built to fill.</p>
+      </div>
+      <div class="why-card reveal">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14"/></svg>Built to last</h3>
+        <p>Engagements are designed for sustainable outcomes — scalable delivery models that evolve with you, not one-off projects that leave you stranded.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Let's talk about your data.</h2>
+    <p>Whether you're planning a migration, modernising your platform, or exploring AI — let's have a conversation about what's possible.</p>
+    <div class="cta-buttons">
+      <a href="mailto:singhbirender88@gmail.com?subject=Data%20Consulting%20Enquiry" class="btn-primary">
+        Start a conversation
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/" class="btn-secondary">View my profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Birender Singh &nbsp;·&nbsp; Data Consulting Services &nbsp;·&nbsp; <a href="/">Back to portfolio</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

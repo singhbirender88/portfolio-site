@@ -6,7 +6,7 @@ Personal portfolio site for Birender Singh, Senior Principal Consultant at Slalo
 
 ## Overview
 
-A minimal, editorial-style portfolio with sections for About, Experience, Skills, Education & Certifications, and Contact. Designed for a professional audience in consulting, financial services, and public sector contexts.
+The site has two pages: a **portfolio home** (`/`) with About, Experience, Skills, Education & Certifications, and Contact sections; and a separate **Data Consulting Services page** (`/DCS`) that is intentionally unlinked and noindexed — reachable only by direct URL. Designed for a professional audience in consulting, financial services, and public sector contexts.
 
 ## Tech Stack
 
